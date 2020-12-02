@@ -26,9 +26,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Msg
-      shell: cmd
+    - name: Msg      
       run: echo "Running git Clone"
     - name: Clone Repo
-      run:  git clone git@github.bedford.progress.com:aestrada/WUG.git
+      shell: cmd
+      run: git clone git@github.bedford.progress.com:aestrada/WUG.git
       
