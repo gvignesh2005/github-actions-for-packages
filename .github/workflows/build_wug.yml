@@ -20,6 +20,5 @@ jobs:
     - name: Msg      
       run: echo "Running git Clone"
     - name: Clone Repo
-      shell: cmd
       run: git clone git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main
       
