@@ -23,15 +23,24 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Msg      
-      run: echo "Running git Clone"
+    - name: Check file existence
+      id: check_files
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "C:/work"
       
     - name: Remove existing Repo
       run: Remove-Item c:\Work  -Force  -Recurse -ErrorAction SilentlyContinue
       
     - name: Clone Repo
+      if: steps.check_files.outputs.files_exists == 'false'
       run: git clone -branch github_cloud_poc git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main     
 
+    - name: pull Repo
+      if: steps.check_files.outputs.files_exists == 'false'
+      working-directory: C:\work\WUG\Main\
+      run: git pull  
+      
     - name: Run Devbuild
       working-directory: C:\work\WUG\Main\Source\DevBuildTools
       shell: cmd
