@@ -30,3 +30,19 @@ jobs:
       working-directory: C:\work\WUG\Main\Source\DevBuildTools
       shell: cmd
       run: DevBuild.bat
+
+    # Run unit testcases with report generation
+              
+    - name: Parse Trx files
+      uses: NasAmin/trx-parser@v0.0.3
+      id: trx-parser
+      with:
+        TRX_PATH:  C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults #This should be the path to your TRX files
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Download CodeCoverage Report
+      uses: actions/upload-artifact@v2
+      with:
+         name: CodeCoverage
+         path: C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\CoverageReport.html
+   
