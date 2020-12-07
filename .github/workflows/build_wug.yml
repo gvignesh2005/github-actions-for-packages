@@ -37,7 +37,7 @@ jobs:
       run: git clone --branch github_cloud_poc git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main     
 
     - name: pull Repo
-      if: steps.check_files.outputs.files_exists == 'false'
+      if: steps.check_files.outputs.files_exists == 'true'
       working-directory: C:\work\WUG\Main\
       run: git pull  
       
@@ -47,7 +47,12 @@ jobs:
       run: DevBuild.bat
 
     # Run unit testcases with report generation
-              
+
+    - name: Generate unit test reports
+      working-directory: C:\work\WUG\Main\Source\DevBuildTools\UnitTests
+      shell: cmd
+      run: generate_report.bat
+      
     - name: Parse Trx files
       uses: NasAmin/trx-parser@v0.0.3
       id: trx-parser
