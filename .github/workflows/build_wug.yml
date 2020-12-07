@@ -24,5 +24,7 @@ jobs:
       run: Remove-Item c:\Work  -Force  -Recurse -ErrorAction SilentlyContinue
       
     - name: Clone Repo
-      run: git clone git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main
-      
+      run: git clone git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main     
+
+    - name: Run Devbuild
+      run: C:\work\WUG\Main\Source\DevBuildTools\DevBuild.bat
