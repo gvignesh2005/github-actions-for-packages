@@ -19,6 +19,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Msg      
       run: echo "Running git Clone"
+      
+    - name: Remove existing Repo
+      run: rm -r -fo c:\Work
+      
     - name: Clone Repo
       run: git clone git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main
       
