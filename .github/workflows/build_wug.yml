@@ -27,4 +27,6 @@ jobs:
       run: git clone git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main     
 
     - name: Run Devbuild
-      run: C:\work\WUG\Main\Source\DevBuildTools\DevBuild.bat
+      working-directory: C:\work\WUG\Main\Source\DevBuildTools
+      shell: cmd
+      run: DevBuild.bat
