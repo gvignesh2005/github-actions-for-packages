@@ -16,5 +16,5 @@ jobs:
         uses: NasAmin/trx-parser@v0.0.3
         id: trx-parser
         with:
-          TRX_PATH:  C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults\TestResults #This should be the path to your TRX files
+          TRX_PATH:  C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults #This should be the path to your TRX files
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
