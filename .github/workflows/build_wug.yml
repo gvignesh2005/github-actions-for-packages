@@ -34,7 +34,7 @@ jobs:
       
     - name: Clone Repo
       if: steps.check_files.outputs.files_exists == 'false'
-      run: git clone -branch github_cloud_poc git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main     
+      run: git clone --branch github_cloud_poc git@github.bedford.progress.com:aestrada/WUG.git C:/Work/WUG/Main     
 
     - name: pull Repo
       if: steps.check_files.outputs.files_exists == 'false'
