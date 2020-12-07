@@ -12,9 +12,9 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1.6
-        if: always()
+      - name: Parse Trx files
+        uses: NasAmin/trx-parser@v0.0.3
+        id: trx-parser
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults\MSTestResults-Core.Rest.UnitTests.trx
+          TRX_PATH:  C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults\TestResults #This should be the path to your TRX files
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
