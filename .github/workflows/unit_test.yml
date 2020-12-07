@@ -9,7 +9,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  puahResult:
+  pushResult:
     runs-on: self-hosted
     steps:
       - name: Parse Trx files
@@ -18,3 +18,9 @@ jobs:
         with:
           TRX_PATH:  C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults #This should be the path to your TRX files
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download CodeCoverage Report
+        uses: actions/upload-artifact@v2
+        with:
+           name: CodeCoverage
+           path: C:\Work\WUG\Main\Source\DevBuildTools\UnitTests\TestResults\CoverageReport.html 
