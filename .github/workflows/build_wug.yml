@@ -29,8 +29,8 @@ jobs:
       with:
         files: "C:/work"
       
-    - name: Remove existing Repo
-      run: Remove-Item c:\Work  -Force  -Recurse -ErrorAction SilentlyContinue
+    #- name: Remove existing Repo
+      #run: Remove-Item c:\Work  -Force  -Recurse -ErrorAction SilentlyContinue
       
     - name: Clone Repo
       if: steps.check_files.outputs.files_exists == 'false'
